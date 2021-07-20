@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e10563655eb9830ba92b731d29c03bf, type: 3}
+  m_Name: 3_Enemy
+  m_EditorClassIdentifier: 
+  mainSprite: {fileID: 21300000, guid: e81528591b97bc6439b08251b1fbcb7f, type: 3}
+  maxHp: 30
+  speed: 1.5
+  damage: 3
+  minCost: 10
+  maxCost: 15
