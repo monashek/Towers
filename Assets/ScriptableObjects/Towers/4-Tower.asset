@@ -15,5 +15,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 19be98c2b1eb861b3a1546403e0c9e75, type: 3}
   towerBuildPrice: 400
   range: 1.6
-  shootInterval: 1
+  shootInterval: 2
   damage: 40

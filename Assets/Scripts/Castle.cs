@@ -11,6 +11,9 @@ public class Castle : MonoBehaviour
 
     [SerializeField]
     private GameEvent moneyEvent;
+
+    [SerializeField]
+    private GameEvent gameOverEvent;
     
     void Start()
     {
@@ -23,6 +26,13 @@ public class Castle : MonoBehaviour
     public void Hit(float damage)
     {
         data.CurrHp -= damage;
+
+        if(data.CurrHp < 0)
+        {
+            data.CurrHp = 0;
+            gameOverEvent.Raise();
+        }
+
         hitEvent.Raise();
     }
 

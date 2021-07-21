@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2e208a29ba1a21c858e014bede7a8d, type: 3}
-  m_Name: 1-Tower
+  m_Script: {fileID: 11500000, guid: 4fec88baf0743cd6d9f78e685c1cfb5b, type: 3}
+  m_Name: GameOver
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: f2bac4b78ac199c5ab186b8383631714, type: 3}
-  towerBuildPrice: 100
-  range: 1
-  shootInterval: 0.5
-  damage: 10

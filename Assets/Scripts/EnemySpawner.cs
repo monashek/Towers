@@ -16,6 +16,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float delayTime;
 
+    [SerializeField]
+    private GameEvent youWin;
+
     public int NumWaves
     {
         get
@@ -34,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private float waveTime;
+    private bool lastWave = false;
 
     void Start()
     {
@@ -43,6 +47,15 @@ public class EnemySpawner : MonoBehaviour
     
     void Update()
     {
+        if(lastWave)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            if(enemies.Length <= 0)
+            {
+                youWin.Raise();
+            }
+        }
     }
 
     private IEnumerator Spawn()
@@ -54,7 +67,15 @@ public class EnemySpawner : MonoBehaviour
             enemy.GetComponent<Enemy>().Init(waveSettings[currWave - 1].EnemyType);
             waveTime -= waveSettings[currWave - 1].PauseTime;
         }
-        StartCoroutine(StartTimer());
+
+        if(currWave == waveSettings.Count)
+        {
+            lastWave = true;
+        }
+        else
+        {
+            StartCoroutine(StartTimer());
+        }
     }
 
     private IEnumerator StartTimer()
@@ -62,11 +83,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         waveTime = waveSettings[currWave].WaveTime;
         currWave++;
-        
-        if(currWave <= waveSettings.Count)
-        {
-            waveEvent.Raise();
-            StartCoroutine(Spawn());
-        }
+        waveEvent.Raise();
+        StartCoroutine(Spawn());
     }
 }
